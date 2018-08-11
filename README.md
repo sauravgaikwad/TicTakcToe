@@ -1,2 +1,3 @@
 # TicTakcToe
-An Python based game
+
+Simple game made using python to plat tic tac toe game 
