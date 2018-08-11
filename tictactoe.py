@@ -1,13 +1,6 @@
-'''
-    File: Tic-Tac-Toe Milestone Project for Udemy Python Course
-    Author: Winnie Liang
-    Description: A simple two player game made within a Jupyter Notebook
-    '''
-#This import is used to clear outputs
 from IPython.display import clear_output
 
-#List of global variables
-board = [' '] * 10  #empty list of 10 elements long. Reason: we are ignoring index 0 of the list for the sake of this game
+board = [' '] * 10  
 game_state = True
 announce = ''
 
@@ -19,8 +12,7 @@ def reset_board():
 
 
 def display_board():
-    '''This function displays the whole board with each index corresponding to a iphone dial pad's arranged numbers'''
-    clear_output() # clears Jupyter Notebook output in cell
+    clear_output() 
     print "  " + board[1] + " |  " + board[2] + " |  " + board[3] + "  "
     print "--------------"
     print "  " + board[4] + " |  " + board[5] + " |  " + board[6] + "  "
@@ -28,7 +20,6 @@ def display_board():
     print "  " + board[7] + " |  " + board[8] + " |  " + board[9] + "  "
 
 def check_win(board, symbol):
-    '''This function checks if a player has won by checking the board's horizontal, vertical, and diagonal alignments for the same symbol'''
     if(board[1] == board[2] == board[3] == symbol) or \
       (board[4] == board[5] == board[6] == symbol) or \
       (board[7] == board[8] == board[9] == symbol) or \
@@ -42,14 +33,12 @@ def check_win(board, symbol):
         return False
 
 def check_empty(board):
-    '''This function checks if there are remaining spaces unfilled in the board'''
-    if " " in board[1:10]: #if the board is empty
+    if " " in board[1:10]:
         return False
-    else:  #if the board is filled
+    else:  
         return True
 
 def ask_location(symbol):
-    '''This function asks the player's where to place their X or O symbol on the board and checks if it's valid'''
     global board
     x = 'Choose from 1-9 on where to place your ' + symbol + '  --->  '
     while True:
@@ -68,13 +57,12 @@ def ask_location(symbol):
 
 
 def player_choice(symbol):
-    '''This function determines the new game's state after the player makes a choice'''
     global board, game_state, announce
     announce = ''
     symbol = str(symbol)
     ask_location(symbol)
     if check_win(board,symbol):
-        clear_output() #clears output of Jupyter notebook cell
+        clear_output() 
         display_board()
         announce = symbol + " wins! Congratulations!"
         game_state = False
